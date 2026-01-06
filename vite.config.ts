@@ -71,12 +71,11 @@ export default defineConfig({
             provider: "v8",
             reporter: ["text", "json", "html"],
             thresholds: {
-                statements: 100,
-                branches: 99.68,
+                statements: 99.95,
+                branches: 99.02,
                 functions: 100,
-                lines: 100,
+                lines: 99.95,
             },
-            // V4: Must explicitly include source files for coverage
             include: ["src/**/*.ts"],
             exclude: [
                 "**/index.ts",

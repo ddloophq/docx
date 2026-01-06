@@ -31,7 +31,7 @@ describe("Compiler", () => {
                 },
             });
             const zipFile = compiler.compile(file);
-            const fileNames = Object.keys(zipFile.files).map((f) => zipFile.files[f].name);
+            const fileNames = Object.values(zipFile.files).map((f) => f.name);
 
             expect(fileNames).is.an.instanceof(Array);
             expect(fileNames).has.length(20);
@@ -85,7 +85,7 @@ describe("Compiler", () => {
             });
 
             const zipFile = compiler.compile(file);
-            const fileNames = Object.keys(zipFile.files).map((f) => zipFile.files[f].name);
+            const fileNames = Object.values(zipFile.files).map((f) => f.name);
 
             expect(fileNames).is.an.instanceof(Array);
             expect(fileNames).has.length(28);
@@ -114,7 +114,7 @@ describe("Compiler", () => {
                 { path: "word/commentsExtended.xml", data: subfileData2 },
             ];
             const zipFile = compiler.compile(file, "", overrides);
-            const fileNames = Object.keys(zipFile.files).map((f) => zipFile.files[f].name);
+            const fileNames = Object.values(zipFile.files).map((f) => f.name);
 
             expect(fileNames).is.an.instanceof(Array);
             expect(fileNames).has.length(21);

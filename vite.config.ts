@@ -2,7 +2,7 @@ import { resolve } from "path";
 import dts from "vite-plugin-dts";
 import { nodePolyfills } from "vite-plugin-node-polyfills";
 import tsconfigPaths from "vite-tsconfig-paths";
-import { configDefaults, defineConfig } from "vitest/config";
+import { defineConfig } from "vitest/config";
 import { copyFileSync } from "node:fs";
 
 export default defineConfig({
@@ -66,6 +66,7 @@ export default defineConfig({
     },
     test: {
         environment: "jsdom",
+        dir: "./src",
         coverage: {
             provider: "v8",
             reporter: ["text", "json", "html"],
@@ -75,18 +76,14 @@ export default defineConfig({
                 functions: 100,
                 lines: 100,
             },
+            // V4: Must explicitly include source files for coverage
+            include: ["src/**/*.ts"],
             exclude: [
-                ...configDefaults.exclude,
-                "**/dist/**",
-                "**/demo/**",
-                "**/docs/**",
-                "**/scripts/**",
-                "**/src/**/index.ts",
-                "**/src/**/types.ts",
+                "**/index.ts",
+                "**/types.ts",
                 "**/*.spec.ts",
             ],
         },
-        include: ["**/src/**/*.spec.ts", "**/packages/**/*.spec.ts"],
-        exclude: [...configDefaults.exclude, "**/build/**", "**/demo/**", "**/docs/**", "**/scripts/**"],
+        include: ["**/*.spec.ts"],
     },
 });

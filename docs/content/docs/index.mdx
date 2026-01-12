@@ -6,23 +6,23 @@ description: Getting started with docx
 ## Installation
 
 ```ansi
-npm install --save docx
+npm install --save @ddloop/docx
 ```
 
 Then you can `import` as usual:
 
 
 ```ts
-import * as docx from "docx";
+import * as docx from "@ddloop/docx";
 // or
-import { ... } from "docx";
+import { ... } from "@ddloop/docx";
 ```
 
 ## Basic Usage
 
 ```ts
 import * as fs from "fs";
-import { Document, Packer, Paragraph, TextRun } from "docx";
+import { Document, Packer, Paragraph, TextRun } from "@ddloop/docx";
 
 // Documents contain sections, you can have multiple sections per document, go here to learn more about sections
 // This simple example will only contain one section
